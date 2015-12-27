@@ -23,6 +23,7 @@ endif
 if BUILD_CFY
 libCountifyQuantLibAddin_la_SOURCES = \
     cfy_exercise.cpp \
+    cfy_handles.cpp \
     cfy_instruments.cpp \
     cfy_mongo.txt \
     cfy_payoffs.cpp \
