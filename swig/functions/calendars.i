@@ -18,6 +18,7 @@ namespace QuantLib {
         Date endOfMonth(const Date& date) const;
 
         %generate(c#, advance);
+        %generate(countify, advance);
         %loop(advance, period);
         Date advance(
             const Date& date,
