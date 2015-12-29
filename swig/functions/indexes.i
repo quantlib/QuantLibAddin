@@ -15,6 +15,7 @@ namespace QuantLibAddin {
 
     class Index {
         public:
+            %generate(countify, addFixings);
             void addFixings(const std::vector<QuantLib::Date>& dates,
                             const std::vector<QuantLib::Real>& values,
                             bool forceOverwrite);
@@ -64,6 +65,7 @@ namespace QuantLibAddin {
 
     class EuriborSwapIsdaFixA : public SwapIndex {
       public:
+            %generate(countify, EuriborSwapIsdaFixA);
             EuriborSwapIsdaFixA(const QuantLib::Period& tenor,
                                 const QuantLib::Handle<QuantLib::YieldTermStructure>& forwarding,
                                 const QuantLib::Handle<QuantLib::YieldTermStructure>& discounting);

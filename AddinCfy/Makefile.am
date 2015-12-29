@@ -26,6 +26,7 @@ libCountifyQuantLibAddin_la_SOURCES = \
     cfy_couponvectors.cpp \
     cfy_exercise.cpp \
     cfy_handles.cpp \
+    cfy_indexes.cpp \
     cfy_instruments.cpp \
     cfy_leg.cpp \
     cfy_payoffs.cpp \
