@@ -29,6 +29,7 @@ libCountifyQuantLibAddin_la_SOURCES = \
     cfy_indexes.cpp \
     cfy_instruments.cpp \
     cfy_leg.cpp \
+    cfymanual_reposit.cpp \
     cfy_payoffs.cpp \
     cfy_pricingengines.cpp \
     cfy_processes.cpp \
