@@ -39,6 +39,7 @@ namespace QuantLibAddin {
 
     class LastFixingQuote : public Quote {
       public:
+        %generate(countify, LastFixingQuote);
         LastFixingQuote(const boost::shared_ptr<QuantLib::Index>& index);
     };
 

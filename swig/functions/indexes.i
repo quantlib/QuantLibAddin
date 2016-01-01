@@ -54,12 +54,14 @@ namespace QuantLibAddin {
     class Euribor : public IborIndex {
         public:
             %generate(c#, Euribor);
+            %generate(countify, Euribor);
             Euribor(const QuantLib::Period& tenor,
                 const QuantLib::Handle<QuantLib::YieldTermStructure>& YieldCurve);
     };
 
     class Eonia : public OvernightIndex {
         public:
+            %generate(countify, Eonia);
             Eonia(const QuantLib::Handle<QuantLib::YieldTermStructure>& YieldCurve);
     };
 
