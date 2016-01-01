@@ -17,6 +17,7 @@ namespace QuantLib {
                        const double last,
                        const double close);
 
+    %generate(countify, midSafe);
     double midSafe(const double bid,
                  const double ask);
 }
