@@ -27,6 +27,7 @@ namespace QuantLibAddin {
                     QuantLib::Real Value,
                     QuantLib::Real tickValue);
 
+        %generate(countify, setValue);
         QuantLib::Real setValue(QuantLib::Real Value);
     };
 
@@ -54,6 +55,7 @@ namespace QuantLibAddin {
 
      class CompositeQuote : public Quote {
       public:
+        %generate(countify, CompositeQuote);
         CompositeQuote(
                     const QuantLib::Handle<QuantLib::Quote>& element1,
                     const QuantLib::Handle<QuantLib::Quote>& element2,

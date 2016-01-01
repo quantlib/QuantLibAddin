@@ -11,6 +11,7 @@
 
 namespace QuantLib {
 
+    %generate(countify, midEquivalent);
     double midEquivalent(const double bid,
                        const double ask,
                        const double last,
