@@ -20,6 +20,7 @@ std::vector<reposit::property_t> f3(FLYLIB_OPAQUE);
 std::vector<QuantLib::Date> f5(FLYLIB_OPAQUE);
 std::vector<QuantLib::Period> f7(FLYLIB_OPAQUE);
 FlyLib_Multi *f8(const std::vector<QuantLib::Date> &v);
+FlyLib_Multi *f9(const std::vector<std::string> &v);
 //void debug_flylib(FlyLib_Multi * _in_params);
 
 #endif

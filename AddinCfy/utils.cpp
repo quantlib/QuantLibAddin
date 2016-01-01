@@ -169,3 +169,10 @@ FlyLib_Multi *f8(const std::vector<QuantLib::Date> &v) {
     return ret;
 }
 
+FlyLib_Multi *f9(const std::vector<std::string> &v) {
+    FlyLib_Multi *ret = FlyLib_Multi::create(1, v.size());
+    for (int i=0; i<v.size(); i++)
+        ret->set_cell(v[i].c_str(), i, 0);
+    return ret;
+}
+

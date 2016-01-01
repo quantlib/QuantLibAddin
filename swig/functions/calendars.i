@@ -14,6 +14,7 @@ namespace QuantLib {
         %loop(isEndOfMonth, date);
         bool isEndOfMonth(const Date& date) const;
 
+        %generate(countify, endOfMonth);
         %loop(endOfMonth, date);
         Date endOfMonth(const Date& date) const;
 

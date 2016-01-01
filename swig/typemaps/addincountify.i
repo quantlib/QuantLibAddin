@@ -33,10 +33,14 @@
 %}
 
 %typemap(rp_tm_cfy_cnvt) std::vector<QuantLib::Period> %{
-        std::vector<QuantLib::Period> $1_name_vec = f7($1_name);
+        std::vector<QuantLib::Period> $1_name = f7($1_name_vec);
 %}
 
 // rp_tm_cfy_rtdf - declare variable to capture return value of Library function (FM)
+
+%typemap(rp_tm_cfy_rtdf) std::vector<QuantLib::Date> %{
+        std::vector<QuantLib::Date> returnValue =
+%}
 
 // rp_tm_cfy_rtdm - declare variable to capture return value of Library function (FM)
 %typemap(rp_tm_cfy_rtdm) QuantLib::Date "QuantLib::Date returnValue =";
@@ -52,6 +56,15 @@
 %typemap(rp_tm_cfy_rtsm) QuantLib::Date "return returnValue.serialNumber();";
 
 %typemap(rp_tm_cfy_rtsm) std::vector<QuantLib::Date> %{
+        FlyLib_Multi *ret = f8(returnValue);
+        return ret;
+%}
+
+%typemap(rp_tm_cfy_rtsf) std::vector<std::string> %{
+        FlyLib_Multi *ret = f9(returnValue);
+        return ret;
+%}
+%typemap(rp_tm_cfy_rtsf) std::vector<QuantLib::Date> %{
         FlyLib_Multi *ret = f8(returnValue);
         return ret;
 %}
@@ -89,8 +102,16 @@
 %typemap(rp_tm_cfy_args) std::vector<QuantLib::Rate> const & "$1_name";
 %typemap(rp_tm_cfy_args) std::vector<QuantLib::Spread> const & "$1_name";
 
+%typemap(rp_tm_cfy_parm) std::vector<QuantLib::Period> "FLYLIB_OPAQUE $1_name_vec"
+%typemap(rp_tm_cfy_parm) std::vector<QuantLib::Date> "FLYLIB_OPAQUE $1_name_vec"
 %typemap(rp_tm_cfy_parm) std::vector<QuantLib::Date> const & "FLYLIB_OPAQUE $1_name_vec"
 %typemap(rp_tm_cfy_parm) std::vector<boost::shared_ptr<QuantLibAddin::Leg> > const & "FLYLIB_OPAQUE $1_name_vec"
+
+%typemap(rp_tm_cfy_cnvt) std::vector<QuantLib::Date> %{
+        //std::vector<reposit::property_t> $1_name = f3($1_name_vec);
+        //std::vector<QuantLib::Date> $1_name_vec2 = f5($1_name_vec);
+        std::vector<QuantLib::Date> $1_name = f5($1_name_vec);
+%}
 
 %typemap(rp_tm_cfy_cnvt) std::vector<QuantLib::Date> const & %{
         std::vector<reposit::property_t> $1_name = f3($1_name_vec);

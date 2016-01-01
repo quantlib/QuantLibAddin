@@ -24,6 +24,7 @@ if BUILD_CFY
 libCountifyQuantLibAddin_la_SOURCES = \
     cfy_calendars.cpp \
     cfy_couponvectors.cpp \
+    cfy_date.cpp \
     cfy_exercise.cpp \
     cfy_handles.cpp \
     cfy_indexes.cpp \
