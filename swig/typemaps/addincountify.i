@@ -38,6 +38,9 @@
 
 // rp_tm_cfy_rtdf - declare variable to capture return value of Library function (FM)
 
+%typemap(rp_tm_cfy_rtdf) QuantLib::Date %{
+        QuantLib::Date returnValue =
+%}
 %typemap(rp_tm_cfy_rtdf) std::vector<QuantLib::Date> %{
         std::vector<QuantLib::Date> returnValue =
 %}
@@ -51,20 +54,20 @@
 %typemap(rp_tm_cfy_args) QuantLib::Period const & "$1_name_cnv";
 
 // rp_tm_cfy_rtsf - return statement (F)
-
-// rp_tm_cfy_rtsm - return statement of a Library member function (M)
-%typemap(rp_tm_cfy_rtsm) QuantLib::Date "return returnValue.serialNumber();";
-
-%typemap(rp_tm_cfy_rtsm) std::vector<QuantLib::Date> %{
-        FlyLib_Multi *ret = f8(returnValue);
-        return ret;
-%}
-
+%typemap(rp_tm_cfy_rtsf) QuantLib::Date "return returnValue.serialNumber();";
 %typemap(rp_tm_cfy_rtsf) std::vector<std::string> %{
         FlyLib_Multi *ret = f9(returnValue);
         return ret;
 %}
 %typemap(rp_tm_cfy_rtsf) std::vector<QuantLib::Date> %{
+        FlyLib_Multi *ret = f8(returnValue);
+        return ret;
+%}
+
+// rp_tm_cfy_rtsm - return statement of a Library member function (M)
+%typemap(rp_tm_cfy_rtsm) QuantLib::Date "return returnValue.serialNumber();";
+
+%typemap(rp_tm_cfy_rtsm) std::vector<QuantLib::Date> %{
         FlyLib_Multi *ret = f8(returnValue);
         return ret;
 %}

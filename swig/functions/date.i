@@ -40,6 +40,7 @@ namespace QuantLib {
     };
 
     struct IMM {
+        //%generate(countify, date);
         %loop(date, immCode);
         static Date date(
             const std::string& immCode,
@@ -49,20 +50,25 @@ namespace QuantLib {
         %loop(code, immDate);
         static std::string code(const Date& immDate);
 
+        %generate(countify, nextCode);
         static std::string nextCode(
             const Date& d,
             bool mainCycle);
     };
 
     struct ECB {
+        %generate(countify, date);
         static Date date(
             const std::string& ecbCode,
             const Date& referenceDate);
 
+        %generate(countify, code);
         static std::string code(const Date& ecbDate);
 
+        %generate(countify, nextDate);
         static Date nextDate(const Date& d);
 
+        %generate(countify, nextCode);
         static std::string nextCode(const Date& d);
     };
 }

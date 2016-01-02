@@ -46,6 +46,7 @@ namespace QuantLibAddin {
 
     class FuturesConvAdjustmentQuote : public Quote {
       public:
+        %generate(countify, FuturesConvAdjustmentQuote);
         FuturesConvAdjustmentQuote(const boost::shared_ptr<QuantLib::IborIndex>& index,
                                    const std::string& immCode,
                                    const QuantLib::Handle<QuantLib::Quote>& futuresQuote,
